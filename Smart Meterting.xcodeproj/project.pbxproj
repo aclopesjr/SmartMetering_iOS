@@ -1,0 +1,562 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0FB6EB1E864162D1F22E62E1 /* libPods-Smart Meterting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C43D38B832DA2DBF850F6B /* libPods-Smart Meterting.a */; };
+		4E01DF0A1E9DA56B00C76586 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E01DF091E9DA56B00C76586 /* main.m */; };
+		4E01DF0D1E9DA56B00C76586 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E01DF0C1E9DA56B00C76586 /* AppDelegate.m */; };
+		4E01DF131E9DA56B00C76586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E01DF111E9DA56B00C76586 /* Main.storyboard */; };
+		4E01DF181E9DA56B00C76586 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E01DF161E9DA56B00C76586 /* LaunchScreen.storyboard */; };
+		4E01DF231E9DABD200C76586 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E01DF221E9DABD200C76586 /* MainViewController.m */; };
+		4E04F1D01EAD2F41001116C7 /* CollectedDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E04F1CF1EAD2F41001116C7 /* CollectedDataTableViewCell.m */; };
+		4E33B9521EA7008E005318D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E33B9511EA7008E005318D7 /* CoreLocation.framework */; };
+		4E33B96A1EA79A8C005318D7 /* AutoRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B95F1EA79A8C005318D7 /* AutoRegister.m */; };
+		4E33B96B1EA79A8C005318D7 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B9611EA79A8C005318D7 /* Data.m */; };
+		4E33B96C1EA79A8C005318D7 /* DataRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B9631EA79A8C005318D7 /* DataRegister.m */; };
+		4E33B96D1EA79A8C005318D7 /* Register.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B9651EA79A8C005318D7 /* Register.m */; };
+		4E33B96E1EA79A8C005318D7 /* Service.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B9671EA79A8C005318D7 /* Service.m */; };
+		4E33B96F1EA79A8C005318D7 /* ServiceRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B9691EA79A8C005318D7 /* ServiceRegister.m */; };
+		4E33B9761EA79A98005318D7 /* AutoRegisterResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B9711EA79A98005318D7 /* AutoRegisterResult.m */; };
+		4E33B9771EA79A98005318D7 /* ServiceRegisterResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B9731EA79A98005318D7 /* ServiceRegisterResult.m */; };
+		4E33B9781EA79A98005318D7 /* ServiceResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B9751EA79A98005318D7 /* ServiceResult.m */; };
+		4E33B97B1EA96CFA005318D7 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B97A1EA96CFA005318D7 /* SettingsViewController.m */; };
+		4E6166341EA99EF100C95927 /* DataRegister+Datas.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6166331EA99EF100C95927 /* DataRegister+Datas.m */; };
+		4E6166371EA9A1A200C95927 /* ServiceRegister+Services.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6166361EA9A1A200C95927 /* ServiceRegister+Services.m */; };
+		4E61663A1EA9BFB300C95927 /* DataResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E6166391EA9BFB300C95927 /* DataResult.m */; };
+		4E61663D1EA9C17200C95927 /* DataRegisterResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E61663C1EA9C17200C95927 /* DataRegisterResult.m */; };
+		4EC998631EA2946200C19DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EC998621EA2946200C19DF3 /* Assets.xcassets */; };
+		4EC998701EA2980600C19DF3 /* Connector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9986D1EA2980600C19DF3 /* Connector.m */; };
+		4EC998711EA2980600C19DF3 /* RaiseUIOT.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC9986F1EA2980600C19DF3 /* RaiseUIOT.m */; };
+		4EC998771EA2ACDA00C19DF3 /* StorageArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC998761EA2ACDA00C19DF3 /* StorageArchive.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		337EDA58DB8B2D11B8449518 /* Pods-Smart Meterting.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Meterting.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Meterting/Pods-Smart Meterting.debug.xcconfig"; sourceTree = "<group>"; };
+		4E01DF051E9DA56B00C76586 /* Smart Meterting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Meterting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E01DF091E9DA56B00C76586 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E01DF0B1E9DA56B00C76586 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4E01DF0C1E9DA56B00C76586 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E01DF121E9DA56B00C76586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4E01DF171E9DA56B00C76586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4E01DF191E9DA56B00C76586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E01DF211E9DABD200C76586 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Controller/MainViewController.h; sourceTree = "<group>"; };
+		4E01DF221E9DABD200C76586 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/MainViewController.m; sourceTree = "<group>"; };
+		4E04F1CE1EAD2F41001116C7 /* CollectedDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectedDataTableViewCell.h; path = Controller/CollectedDataTableViewCell.h; sourceTree = "<group>"; };
+		4E04F1CF1EAD2F41001116C7 /* CollectedDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectedDataTableViewCell.m; path = Controller/CollectedDataTableViewCell.m; sourceTree = "<group>"; };
+		4E33B9511EA7008E005318D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4E33B95E1EA79A8C005318D7 /* AutoRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoRegister.h; path = Model/Domain/Register/AutoRegister.h; sourceTree = "<group>"; };
+		4E33B95F1EA79A8C005318D7 /* AutoRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoRegister.m; path = Model/Domain/Register/AutoRegister.m; sourceTree = "<group>"; };
+		4E33B9601EA79A8C005318D7 /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Data.h; path = Model/Domain/Register/Data.h; sourceTree = "<group>"; };
+		4E33B9611EA79A8C005318D7 /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Data.m; path = Model/Domain/Register/Data.m; sourceTree = "<group>"; };
+		4E33B9621EA79A8C005318D7 /* DataRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataRegister.h; path = Model/Domain/Register/DataRegister.h; sourceTree = "<group>"; };
+		4E33B9631EA79A8C005318D7 /* DataRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataRegister.m; path = Model/Domain/Register/DataRegister.m; sourceTree = "<group>"; };
+		4E33B9641EA79A8C005318D7 /* Register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Register.h; path = Model/Domain/Register/Register.h; sourceTree = "<group>"; };
+		4E33B9651EA79A8C005318D7 /* Register.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Register.m; path = Model/Domain/Register/Register.m; sourceTree = "<group>"; };
+		4E33B9661EA79A8C005318D7 /* Service.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Service.h; path = Model/Domain/Register/Service.h; sourceTree = "<group>"; };
+		4E33B9671EA79A8C005318D7 /* Service.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Service.m; path = Model/Domain/Register/Service.m; sourceTree = "<group>"; };
+		4E33B9681EA79A8C005318D7 /* ServiceRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceRegister.h; path = Model/Domain/Register/ServiceRegister.h; sourceTree = "<group>"; };
+		4E33B9691EA79A8C005318D7 /* ServiceRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceRegister.m; path = Model/Domain/Register/ServiceRegister.m; sourceTree = "<group>"; };
+		4E33B9701EA79A98005318D7 /* AutoRegisterResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoRegisterResult.h; path = Model/Domain/Result/AutoRegisterResult.h; sourceTree = "<group>"; };
+		4E33B9711EA79A98005318D7 /* AutoRegisterResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoRegisterResult.m; path = Model/Domain/Result/AutoRegisterResult.m; sourceTree = "<group>"; };
+		4E33B9721EA79A98005318D7 /* ServiceRegisterResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceRegisterResult.h; path = Model/Domain/Result/ServiceRegisterResult.h; sourceTree = "<group>"; };
+		4E33B9731EA79A98005318D7 /* ServiceRegisterResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceRegisterResult.m; path = Model/Domain/Result/ServiceRegisterResult.m; sourceTree = "<group>"; };
+		4E33B9741EA79A98005318D7 /* ServiceResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServiceResult.h; path = Model/Domain/Result/ServiceResult.h; sourceTree = "<group>"; };
+		4E33B9751EA79A98005318D7 /* ServiceResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ServiceResult.m; path = Model/Domain/Result/ServiceResult.m; sourceTree = "<group>"; };
+		4E33B9791EA96CFA005318D7 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Controller/SettingsViewController.h; sourceTree = "<group>"; };
+		4E33B97A1EA96CFA005318D7 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Controller/SettingsViewController.m; sourceTree = "<group>"; };
+		4E6166321EA99EF100C95927 /* DataRegister+Datas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DataRegister+Datas.h"; path = "Model/Service/DataRegister+Datas.h"; sourceTree = "<group>"; };
+		4E6166331EA99EF100C95927 /* DataRegister+Datas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DataRegister+Datas.m"; path = "Model/Service/DataRegister+Datas.m"; sourceTree = "<group>"; };
+		4E6166351EA9A1A200C95927 /* ServiceRegister+Services.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ServiceRegister+Services.h"; path = "Model/Service/ServiceRegister+Services.h"; sourceTree = "<group>"; };
+		4E6166361EA9A1A200C95927 /* ServiceRegister+Services.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ServiceRegister+Services.m"; path = "Model/Service/ServiceRegister+Services.m"; sourceTree = "<group>"; };
+		4E6166381EA9BFB300C95927 /* DataResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataResult.h; path = Model/Domain/Result/DataResult.h; sourceTree = "<group>"; };
+		4E6166391EA9BFB300C95927 /* DataResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataResult.m; path = Model/Domain/Result/DataResult.m; sourceTree = "<group>"; };
+		4E61663B1EA9C17200C95927 /* DataRegisterResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataRegisterResult.h; path = Model/Domain/Result/DataRegisterResult.h; sourceTree = "<group>"; };
+		4E61663C1EA9C17200C95927 /* DataRegisterResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataRegisterResult.m; path = Model/Domain/Result/DataRegisterResult.m; sourceTree = "<group>"; };
+		4EC998621EA2946200C19DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4EC9986C1EA2980600C19DF3 /* Connector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Connector.h; path = Model/Service/Connector.h; sourceTree = "<group>"; };
+		4EC9986D1EA2980600C19DF3 /* Connector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Connector.m; path = Model/Service/Connector.m; sourceTree = "<group>"; };
+		4EC9986E1EA2980600C19DF3 /* RaiseUIOT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RaiseUIOT.h; path = Model/Service/RaiseUIOT.h; sourceTree = "<group>"; };
+		4EC9986F1EA2980600C19DF3 /* RaiseUIOT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RaiseUIOT.m; path = Model/Service/RaiseUIOT.m; sourceTree = "<group>"; };
+		4EC998751EA2ACDA00C19DF3 /* StorageArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StorageArchive.h; path = Model/Service/StorageArchive.h; sourceTree = "<group>"; };
+		4EC998761EA2ACDA00C19DF3 /* StorageArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StorageArchive.m; path = Model/Service/StorageArchive.m; sourceTree = "<group>"; };
+		63C43D38B832DA2DBF850F6B /* libPods-Smart Meterting.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Smart Meterting.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7CCA34B735EF0D5F0E7558C /* Pods-Smart Meterting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Meterting.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Meterting/Pods-Smart Meterting.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E01DF021E9DA56B00C76586 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E33B9521EA7008E005318D7 /* CoreLocation.framework in Frameworks */,
+				0FB6EB1E864162D1F22E62E1 /* libPods-Smart Meterting.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E01DEFC1E9DA56B00C76586 = {
+			isa = PBXGroup;
+			children = (
+				4E01DF071E9DA56B00C76586 /* Smart Meterting */,
+				4E01DF061E9DA56B00C76586 /* Products */,
+				BD73B2D3DAB4632E142920A7 /* Pods */,
+				746CB11480CF9FCB8D2F77D1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4E01DF061E9DA56B00C76586 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E01DF051E9DA56B00C76586 /* Smart Meterting.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E01DF071E9DA56B00C76586 /* Smart Meterting */ = {
+			isa = PBXGroup;
+			children = (
+				4E01DF1F1E9DAB8E00C76586 /* Model */,
+				4E01DF201E9DABA200C76586 /* Controller */,
+				4E01DF0B1E9DA56B00C76586 /* AppDelegate.h */,
+				4E01DF0C1E9DA56B00C76586 /* AppDelegate.m */,
+				4E01DF111E9DA56B00C76586 /* Main.storyboard */,
+				4E01DF161E9DA56B00C76586 /* LaunchScreen.storyboard */,
+				4EC998621EA2946200C19DF3 /* Assets.xcassets */,
+				4E01DF191E9DA56B00C76586 /* Info.plist */,
+				4E01DF081E9DA56B00C76586 /* Supporting Files */,
+			);
+			path = "Smart Meterting";
+			sourceTree = "<group>";
+		};
+		4E01DF081E9DA56B00C76586 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E01DF091E9DA56B00C76586 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E01DF1F1E9DAB8E00C76586 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EC998641EA2978F00C19DF3 /* Domain */,
+				4EC998651EA2979800C19DF3 /* Service */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4E01DF201E9DABA200C76586 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4E01DF211E9DABD200C76586 /* MainViewController.h */,
+				4E01DF221E9DABD200C76586 /* MainViewController.m */,
+				4E33B9791EA96CFA005318D7 /* SettingsViewController.h */,
+				4E33B97A1EA96CFA005318D7 /* SettingsViewController.m */,
+				4E04F1CE1EAD2F41001116C7 /* CollectedDataTableViewCell.h */,
+				4E04F1CF1EAD2F41001116C7 /* CollectedDataTableViewCell.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4E33B95C1EA79A17005318D7 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				4E33B95E1EA79A8C005318D7 /* AutoRegister.h */,
+				4E33B95F1EA79A8C005318D7 /* AutoRegister.m */,
+				4E33B9601EA79A8C005318D7 /* Data.h */,
+				4E33B9611EA79A8C005318D7 /* Data.m */,
+				4E33B9621EA79A8C005318D7 /* DataRegister.h */,
+				4E33B9631EA79A8C005318D7 /* DataRegister.m */,
+				4E33B9641EA79A8C005318D7 /* Register.h */,
+				4E33B9651EA79A8C005318D7 /* Register.m */,
+				4E33B9661EA79A8C005318D7 /* Service.h */,
+				4E33B9671EA79A8C005318D7 /* Service.m */,
+				4E33B9681EA79A8C005318D7 /* ServiceRegister.h */,
+				4E33B9691EA79A8C005318D7 /* ServiceRegister.m */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
+		4E33B95D1EA79A27005318D7 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				4E33B9701EA79A98005318D7 /* AutoRegisterResult.h */,
+				4E33B9711EA79A98005318D7 /* AutoRegisterResult.m */,
+				4E33B9721EA79A98005318D7 /* ServiceRegisterResult.h */,
+				4E33B9731EA79A98005318D7 /* ServiceRegisterResult.m */,
+				4E33B9741EA79A98005318D7 /* ServiceResult.h */,
+				4E33B9751EA79A98005318D7 /* ServiceResult.m */,
+				4E6166381EA9BFB300C95927 /* DataResult.h */,
+				4E6166391EA9BFB300C95927 /* DataResult.m */,
+				4E61663B1EA9C17200C95927 /* DataRegisterResult.h */,
+				4E61663C1EA9C17200C95927 /* DataRegisterResult.m */,
+			);
+			name = Result;
+			sourceTree = "<group>";
+		};
+		4EC998641EA2978F00C19DF3 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4E33B95C1EA79A17005318D7 /* Register */,
+				4E33B95D1EA79A27005318D7 /* Result */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		4EC998651EA2979800C19DF3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4EC9986C1EA2980600C19DF3 /* Connector.h */,
+				4EC9986D1EA2980600C19DF3 /* Connector.m */,
+				4EC9986E1EA2980600C19DF3 /* RaiseUIOT.h */,
+				4EC9986F1EA2980600C19DF3 /* RaiseUIOT.m */,
+				4EC998751EA2ACDA00C19DF3 /* StorageArchive.h */,
+				4EC998761EA2ACDA00C19DF3 /* StorageArchive.m */,
+				4E6166321EA99EF100C95927 /* DataRegister+Datas.h */,
+				4E6166331EA99EF100C95927 /* DataRegister+Datas.m */,
+				4E6166351EA9A1A200C95927 /* ServiceRegister+Services.h */,
+				4E6166361EA9A1A200C95927 /* ServiceRegister+Services.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		746CB11480CF9FCB8D2F77D1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E33B9511EA7008E005318D7 /* CoreLocation.framework */,
+				63C43D38B832DA2DBF850F6B /* libPods-Smart Meterting.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD73B2D3DAB4632E142920A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				337EDA58DB8B2D11B8449518 /* Pods-Smart Meterting.debug.xcconfig */,
+				C7CCA34B735EF0D5F0E7558C /* Pods-Smart Meterting.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E01DF041E9DA56B00C76586 /* Smart Meterting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E01DF1C1E9DA56B00C76586 /* Build configuration list for PBXNativeTarget "Smart Meterting" */;
+			buildPhases = (
+				7F4ADF89FD532778811CE88D /* [CP] Check Pods Manifest.lock */,
+				4E01DF011E9DA56B00C76586 /* Sources */,
+				4E01DF021E9DA56B00C76586 /* Frameworks */,
+				4E01DF031E9DA56B00C76586 /* Resources */,
+				7D961F6BF19CCE642734DE1A /* [CP] Embed Pods Frameworks */,
+				A266B226BE2F51293DEE929A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smart Meterting";
+			productName = "Smart Meterting";
+			productReference = 4E01DF051E9DA56B00C76586 /* Smart Meterting.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E01DEFD1E9DA56B00C76586 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Antonio Lopes";
+				TargetAttributes = {
+					4E01DF041E9DA56B00C76586 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 64BZ9T7LV6;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 4E01DF001E9DA56B00C76586 /* Build configuration list for PBXProject "Smart Meterting" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4E01DEFC1E9DA56B00C76586;
+			productRefGroup = 4E01DF061E9DA56B00C76586 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E01DF041E9DA56B00C76586 /* Smart Meterting */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E01DF031E9DA56B00C76586 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E01DF181E9DA56B00C76586 /* LaunchScreen.storyboard in Resources */,
+				4EC998631EA2946200C19DF3 /* Assets.xcassets in Resources */,
+				4E01DF131E9DA56B00C76586 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D961F6BF19CCE642734DE1A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Meterting/Pods-Smart Meterting-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F4ADF89FD532778811CE88D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A266B226BE2F51293DEE929A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Smart Meterting/Pods-Smart Meterting-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E01DF011E9DA56B00C76586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E01DF0D1E9DA56B00C76586 /* AppDelegate.m in Sources */,
+				4EC998701EA2980600C19DF3 /* Connector.m in Sources */,
+				4E61663A1EA9BFB300C95927 /* DataResult.m in Sources */,
+				4E33B96F1EA79A8C005318D7 /* ServiceRegister.m in Sources */,
+				4E33B97B1EA96CFA005318D7 /* SettingsViewController.m in Sources */,
+				4EC998771EA2ACDA00C19DF3 /* StorageArchive.m in Sources */,
+				4E33B9781EA79A98005318D7 /* ServiceResult.m in Sources */,
+				4E04F1D01EAD2F41001116C7 /* CollectedDataTableViewCell.m in Sources */,
+				4E6166371EA9A1A200C95927 /* ServiceRegister+Services.m in Sources */,
+				4E33B9761EA79A98005318D7 /* AutoRegisterResult.m in Sources */,
+				4E33B96B1EA79A8C005318D7 /* Data.m in Sources */,
+				4E33B96A1EA79A8C005318D7 /* AutoRegister.m in Sources */,
+				4E01DF231E9DABD200C76586 /* MainViewController.m in Sources */,
+				4E33B96E1EA79A8C005318D7 /* Service.m in Sources */,
+				4EC998711EA2980600C19DF3 /* RaiseUIOT.m in Sources */,
+				4E6166341EA99EF100C95927 /* DataRegister+Datas.m in Sources */,
+				4E01DF0A1E9DA56B00C76586 /* main.m in Sources */,
+				4E33B9771EA79A98005318D7 /* ServiceRegisterResult.m in Sources */,
+				4E61663D1EA9C17200C95927 /* DataRegisterResult.m in Sources */,
+				4E33B96D1EA79A8C005318D7 /* Register.m in Sources */,
+				4E33B96C1EA79A8C005318D7 /* DataRegister.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4E01DF111E9DA56B00C76586 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E01DF121E9DA56B00C76586 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4E01DF161E9DA56B00C76586 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E01DF171E9DA56B00C76586 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E01DF1A1E9DA56B00C76586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4E01DF1B1E9DA56B00C76586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E01DF1D1E9DA56B00C76586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 337EDA58DB8B2D11B8449518 /* Pods-Smart Meterting.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 64BZ9T7LV6;
+				INFOPLIST_FILE = "Smart Meterting/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iot.unb.Smart-Meterting";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4E01DF1E1E9DA56B00C76586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7CCA34B735EF0D5F0E7558C /* Pods-Smart Meterting.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 64BZ9T7LV6;
+				INFOPLIST_FILE = "Smart Meterting/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iot.unb.Smart-Meterting";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E01DF001E9DA56B00C76586 /* Build configuration list for PBXProject "Smart Meterting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E01DF1A1E9DA56B00C76586 /* Debug */,
+				4E01DF1B1E9DA56B00C76586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E01DF1C1E9DA56B00C76586 /* Build configuration list for PBXNativeTarget "Smart Meterting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E01DF1D1E9DA56B00C76586 /* Debug */,
+				4E01DF1E1E9DA56B00C76586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4E01DEFD1E9DA56B00C76586 /* Project object */;
+}
