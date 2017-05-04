@@ -12,9 +12,15 @@
 @interface DataRegister(Datas)
 
 +(DataRegister *)datasWithRoot;
-+(Data *)dataForLocation;
-+(Data *)dataForSignal;
 +(NSNumber *)getServiceId:(NSString *)serviceName;
++(Data *)dataForLocation;
++(Data *)dataForSignalLevel;
++(Data *)dataForBatteryLevel;
++(Data *)dataForDownloadAndUpload;
++(Data *)dataForLossPackage;
++(Data *)dataForDeviceModel;
++(Data *)dataForDeviceBranch;
++(Data *)dataForOS;
 
 
 @end

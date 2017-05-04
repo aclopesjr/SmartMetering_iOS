@@ -10,6 +10,7 @@
 #import "ServiceRegisterResult.h"
 #import "StorageArchive.h"
 #import "ServiceRegister+Services.h"
+#import "UIDevice+Extention.h"
 
 @implementation DataRegister(Datas)
 
@@ -20,13 +21,15 @@
     
     NSMutableArray<Data *> *datas = [NSMutableArray<Data *> arrayWithObjects:
                                            [DataRegister dataForLocation],
-                                           [DataRegister dataForSignal],
+                                           [DataRegister dataForSignalLevel],
+                                           [DataRegister dataForBatteryLevel],
                                            nil];
     [dataRegister setDatas:datas];
     
     return dataRegister;
 }
 
+//Collect data for location
 +(Data *)dataForLocation {
     NSNumber *serviceId = [DataRegister getServiceId:SERVICE_NAME_FOR_LOCATION];
     
@@ -35,14 +38,15 @@
     [data setServiceId:serviceId];
     //Sets the input values
     NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
-    [inputValues setObject:[NSNumber numberWithFloat:0.0] forKey:@"latitude"];
-    [inputValues setObject:[NSNumber numberWithFloat:0.0] forKey:@"longitude"];
+    [inputValues setObject:[UIDevice latitude] forKey:@"latitude"];
+    [inputValues setObject:[UIDevice longitude] forKey:@"longitude"];
     [data setDataValues:inputValues];
     
     return data;
 }
 
-+(Data *)dataForSignal {
+//Collect data for network signal level
++(Data *)dataForSignalLevel {
     NSNumber *serviceId = [DataRegister getServiceId:SERVICE_NAME_FOR_NETWORK_SIGNAL];
     
     Data *data = [[Data alloc] init];
@@ -50,10 +54,55 @@
     [data setServiceId:serviceId];
     //Sets the input values
     NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
-    [inputValues setObject:@"Good" forKey:@"signal"];
+    [inputValues setObject:[UIDevice carrierName] forKey:@"carrier"];
+    [inputValues setObject:[UIDevice signalStrength] forKey:@"signal"];
     [data setDataValues:inputValues];
     
     return data;
+}
+
+//Collect data for power level
++(Data *)dataForBatteryLevel {
+    //Gets the service id for battery
+    NSNumber *serviceId = [DataRegister getServiceId:SERVICE_NAME_FOR_BATTERY];
+    
+    //Creates the data to register
+    Data *data = [[Data alloc] init];
+    //Sets the service id
+    [data setServiceId:serviceId];
+    //Sets the input values
+    NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
+    [inputValues setObject:[UIDevice batteryState] forKey:@"state"];
+    [inputValues setObject:[UIDevice batteryPercentage] forKey:@"percentage"];
+    [data setDataValues:inputValues];
+    
+    return data;
+}
+
+//Collect data for download and upload
++(Data *)dataForDownloadAndUpload {
+    return nil;
+}
+
+//Collect data for loss package
++(Data *)dataForLossPackage {
+    return nil;
+}
+
+//Collect data for device model
++(Data *)dataForDeviceModel {
+    //[self setChipset:[[UIDevice currentDevice] model]];
+    return nil;
+}
+
+//Collect data for device branch
++(Data *)dataForDeviceBranch {
+    return nil;
+}
+
+//Collect data for operation system
++(Data *)dataForOS {
+    return nil;
 }
 
 +(NSNumber *)getServiceId:(NSString *)serviceName {

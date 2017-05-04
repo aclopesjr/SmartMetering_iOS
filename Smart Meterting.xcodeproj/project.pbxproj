@@ -14,6 +14,9 @@
 		4E01DF181E9DA56B00C76586 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E01DF161E9DA56B00C76586 /* LaunchScreen.storyboard */; };
 		4E01DF231E9DABD200C76586 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E01DF221E9DABD200C76586 /* MainViewController.m */; };
 		4E04F1D01EAD2F41001116C7 /* CollectedDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E04F1CF1EAD2F41001116C7 /* CollectedDataTableViewCell.m */; };
+		4E04F1D31EB75CBF001116C7 /* Revalidate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E04F1D21EB75CBF001116C7 /* Revalidate.m */; };
+		4E04F1D91EB7B0C2001116C7 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E04F1D71EB7AA94001116C7 /* CoreTelephony.framework */; };
+		4E04F1E01EB7DC98001116C7 /* UIDevice+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E04F1DF1EB7DC98001116C7 /* UIDevice+Extention.m */; };
 		4E33B9521EA7008E005318D7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E33B9511EA7008E005318D7 /* CoreLocation.framework */; };
 		4E33B96A1EA79A8C005318D7 /* AutoRegister.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B95F1EA79A8C005318D7 /* AutoRegister.m */; };
 		4E33B96B1EA79A8C005318D7 /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E33B9611EA79A8C005318D7 /* Data.m */; };
@@ -48,6 +51,11 @@
 		4E01DF221E9DABD200C76586 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Controller/MainViewController.m; sourceTree = "<group>"; };
 		4E04F1CE1EAD2F41001116C7 /* CollectedDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectedDataTableViewCell.h; path = Controller/CollectedDataTableViewCell.h; sourceTree = "<group>"; };
 		4E04F1CF1EAD2F41001116C7 /* CollectedDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectedDataTableViewCell.m; path = Controller/CollectedDataTableViewCell.m; sourceTree = "<group>"; };
+		4E04F1D11EB75CBF001116C7 /* Revalidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Revalidate.h; path = Model/Domain/Register/Revalidate.h; sourceTree = "<group>"; };
+		4E04F1D21EB75CBF001116C7 /* Revalidate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Revalidate.m; path = Model/Domain/Register/Revalidate.m; sourceTree = "<group>"; };
+		4E04F1D71EB7AA94001116C7 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4E04F1DE1EB7DC98001116C7 /* UIDevice+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Extention.h"; path = "Model/Extention/UIDevice+Extention.h"; sourceTree = "<group>"; };
+		4E04F1DF1EB7DC98001116C7 /* UIDevice+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Extention.m"; path = "Model/Extention/UIDevice+Extention.m"; sourceTree = "<group>"; };
 		4E33B9511EA7008E005318D7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4E33B95E1EA79A8C005318D7 /* AutoRegister.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoRegister.h; path = Model/Domain/Register/AutoRegister.h; sourceTree = "<group>"; };
 		4E33B95F1EA79A8C005318D7 /* AutoRegister.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoRegister.m; path = Model/Domain/Register/AutoRegister.m; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E04F1D91EB7B0C2001116C7 /* CoreTelephony.framework in Frameworks */,
 				4E33B9521EA7008E005318D7 /* CoreLocation.framework in Frameworks */,
 				0FB6EB1E864162D1F22E62E1 /* libPods-Smart Meterting.a in Frameworks */,
 			);
@@ -147,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				4EC998641EA2978F00C19DF3 /* Domain */,
+				4E04F1DA1EB7CD70001116C7 /* Extention */,
 				4EC998651EA2979800C19DF3 /* Service */,
 			);
 			name = Model;
@@ -165,11 +175,22 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		4E04F1DA1EB7CD70001116C7 /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				4E04F1DE1EB7DC98001116C7 /* UIDevice+Extention.h */,
+				4E04F1DF1EB7DC98001116C7 /* UIDevice+Extention.m */,
+			);
+			name = Extention;
+			sourceTree = "<group>";
+		};
 		4E33B95C1EA79A17005318D7 /* Register */ = {
 			isa = PBXGroup;
 			children = (
 				4E33B95E1EA79A8C005318D7 /* AutoRegister.h */,
 				4E33B95F1EA79A8C005318D7 /* AutoRegister.m */,
+				4E04F1D11EB75CBF001116C7 /* Revalidate.h */,
+				4E04F1D21EB75CBF001116C7 /* Revalidate.m */,
 				4E33B9601EA79A8C005318D7 /* Data.h */,
 				4E33B9611EA79A8C005318D7 /* Data.m */,
 				4E33B9621EA79A8C005318D7 /* DataRegister.h */,
@@ -230,6 +251,7 @@
 		746CB11480CF9FCB8D2F77D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E04F1D71EB7AA94001116C7 /* CoreTelephony.framework */,
 				4E33B9511EA7008E005318D7 /* CoreLocation.framework */,
 				63C43D38B832DA2DBF850F6B /* libPods-Smart Meterting.a */,
 			);
@@ -385,10 +407,12 @@
 				4E33B9761EA79A98005318D7 /* AutoRegisterResult.m in Sources */,
 				4E33B96B1EA79A8C005318D7 /* Data.m in Sources */,
 				4E33B96A1EA79A8C005318D7 /* AutoRegister.m in Sources */,
+				4E04F1E01EB7DC98001116C7 /* UIDevice+Extention.m in Sources */,
 				4E01DF231E9DABD200C76586 /* MainViewController.m in Sources */,
 				4E33B96E1EA79A8C005318D7 /* Service.m in Sources */,
 				4EC998711EA2980600C19DF3 /* RaiseUIOT.m in Sources */,
 				4E6166341EA99EF100C95927 /* DataRegister+Datas.m in Sources */,
+				4E04F1D31EB75CBF001116C7 /* Revalidate.m in Sources */,
 				4E01DF0A1E9DA56B00C76586 /* main.m in Sources */,
 				4E33B9771EA79A98005318D7 /* ServiceRegisterResult.m in Sources */,
 				4E61663D1EA9C17200C95927 /* DataRegisterResult.m in Sources */,

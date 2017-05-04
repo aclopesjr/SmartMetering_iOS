@@ -8,6 +8,9 @@
 
 #define SERVICE_NAME_FOR_LOCATION           @"GetLocation"
 #define SERVICE_NAME_FOR_NETWORK_SIGNAL     @"GetNetworkSignal"
+#define SERVICE_NAME_FOR_BATTERY            @"GetBatteryLevel"
+#define SERVICE_NAME_FOR_NETWORK_TRAFFIC    @"GetNetworkTraffic"
+#define SERVICE_NAME_FOR_LOSS_PACKAGE       @"GetLossPackage"
 
 #import <Foundation/Foundation.h>
 #import "ServiceRegister.h"
@@ -16,6 +19,7 @@
 
 +(ServiceRegister *)servicesWithRoot;
 +(Service *)serviceWithLocation;
-+(Service *)serviceWithSignal;
++(Service *)serviceWithNetworkSignal;
++(Service *)serviceWithBatteryLevel;
 
 @end

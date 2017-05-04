@@ -16,7 +16,8 @@
     
     NSMutableArray<Service *> *services = [NSMutableArray<Service *> arrayWithObjects:
                                            [ServiceRegister serviceWithLocation],
-                                           [ServiceRegister serviceWithSignal],
+                                           [ServiceRegister serviceWithNetworkSignal],
+                                           [ServiceRegister serviceWithBatteryLevel],
                                            nil];
     [serviceRegister setServices:services];
     
@@ -38,18 +39,34 @@
     return locationService;
 }
 
-+(Service *)serviceWithSignal {
++(Service *)serviceWithNetworkSignal {
     //Creates the location service
     Service *networkSignalService = [Service alloc];
     [networkSignalService setServiceName:SERVICE_NAME_FOR_NETWORK_SIGNAL];
     //Defines the input parameters
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-    [parameters setValue:@"string" forKey:@"signal"];
+    [parameters setValue:@"string" forKey:@"carrier"];
+    [parameters setValue:@"float" forKey:@"signal"];
     [networkSignalService setServiceParameters:parameters];
     //Defines the output parameters
     [networkSignalService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
     
     return networkSignalService;
+}
+
++(Service *)serviceWithBatteryLevel {
+    //Creates the location service
+    Service *batteryService = [Service alloc];
+    [batteryService setServiceName:SERVICE_NAME_FOR_BATTERY];
+    //Defines the input parameters
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:@"string" forKey:@"state"];
+    [parameters setValue:@"float" forKey:@"percentage"];
+    [batteryService setServiceParameters:parameters];
+    //Defines the output parameters
+    [batteryService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
+    
+    return batteryService;
 }
 
 @end

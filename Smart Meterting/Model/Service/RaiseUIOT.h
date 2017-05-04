@@ -21,7 +21,11 @@ typedef enum {
 
 +(BOOL)isAutoRegistered;
 
-+(void)autoRegister:(void (^_Nullable)(AutoRegisterResult * _Nullable autoRegisterResult))completionHandlerSuccessfuly andErroHandler:(void (^_Nullable)(NSError * _Nullable error))completionHandlerWithError;
++(void)willNeedToValidateAutoRegister:(void (^_Nonnull)())completionHandlerWithNeeds andNoNeedsHandler:(void (^_Nonnull)())completionHandlerWithNoNeeds andErroHandler:(void (^_Nonnull)(NSError * _Nullable error))completionHandlerWithError;
+
++(void)autoRegister:(void (^_Nonnull)(AutoRegisterResult * _Nonnull autoRegisterResult))completionHandlerSuccessfuly andErroHandler:(void (^_Nonnull)(NSError * _Nonnull error))completionHandlerWithError;
+
++(void)revalidateAutoRegister:(void (^_Nullable)(AutoRegisterResult * _Nullable autoRegisterResult))completionHandlerSuccessfuly andErroHandler:(void (^_Nullable)(NSError * _Nullable error))completionHandlerWithError;
 
 +(void)registerAllServices:(void (^_Nullable)(ServiceRegisterResult * _Nullable serviceRegisterResult))completionHandlerSuccessfuly andCompletionHandlerWithError:(void (^_Nullable)(NSError * _Nullable error))completionHandlerWithError;
 

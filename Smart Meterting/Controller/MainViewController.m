@@ -26,13 +26,14 @@
     
     collectedDatas = [[NSMutableArray<DataResult *> alloc] init];
     
-    //[tableViewOfDatas setDelegate:self];
-    //[tableViewOfDatas setDataSource:self];
-    //[tableViewOfDatas registerClass:CollectedDataTableViewCell.class forCellReuseIdentifier:@"CollectedDataCell"];
-    
     refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Loading Data"]];
     [refreshControl addTarget:self action:@selector(requestData) forControlEvents:UIControlEventValueChanged];
     [tableViewOfDatas addSubview:refreshControl];
+    
+    [tableViewOfDatas setContentOffset:CGPointMake(0, -refreshControl.frame.size.height)];
+    [refreshControl beginRefreshing];
+    [self requestData];
 }
 
 -(void)requestData {
@@ -40,28 +41,71 @@
     [collectedDatas removeAllObjects];
     [tableViewOfDatas reloadData];
     
+    //Checks if the device is auto regitered
+    if ([RaiseUIOT isAutoRegistered]) {
+        //Checks if there is need to revalidate auto register
+        [RaiseUIOT willNeedToValidateAutoRegister:^{
+            //Revalidates auto register
+            [RaiseUIOT revalidateAutoRegister:^(AutoRegisterResult * _Nullable autoRegisterResult) {
+                //Loads all data registered
+                [self requestAllData];
+            } andErroHandler:^(NSError * _Nullable error) {
+                
+            }];
+        } andNoNeedsHandler:^{
+            //Loads all data registered
+            [self requestAllData];
+        } andErroHandler:^(NSError * _Nullable error) {
+            
+        }];
+    //Starts the process of auto register
+    } else {
+        //Auto register process
+        [RaiseUIOT autoRegister:^(AutoRegisterResult * _Nonnull autoRegisterResult) {
+            //Loads all data registered
+            [self requestAllData];
+        } andErroHandler:^(NSError * _Nonnull error) {
+            
+        }];
+    }
+}
+
+-(void)requestAllData {
     [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_LOCATION andSuccessHandler:^(DataRegisterResult * _Nullable dataRegisterResult) {
         //
+        [self addRegistersOrdered:dataRegisterResult.datas];
         
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [collectedDatas addObjectsFromArray:dataRegisterResult.datas];
-            [tableViewOfDatas reloadData];
-            [refreshControl endRefreshing];
-        });
+        [tableViewOfDatas reloadData];
+        [refreshControl endRefreshing];
     } andCompletionHandlerWithError:^(NSError * _Nullable error) {
         
     }];
     
     [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_NETWORK_SIGNAL andSuccessHandler:^(DataRegisterResult * _Nullable dataRegisterResult) {
         //
+        [self addRegistersOrdered:dataRegisterResult.datas];
         
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [collectedDatas addObjectsFromArray:dataRegisterResult.datas];
-            [tableViewOfDatas reloadData];
-            [refreshControl endRefreshing];
-        });
+        [tableViewOfDatas reloadData];
+        [refreshControl endRefreshing];
     } andCompletionHandlerWithError:^(NSError * _Nullable error) {
         
+    }];
+    
+    [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_BATTERY andSuccessHandler:^(DataRegisterResult * _Nullable dataRegisterResult) {
+        //
+        [self addRegistersOrdered:dataRegisterResult.datas];
+        
+        [tableViewOfDatas reloadData];
+        [refreshControl endRefreshing];
+    } andCompletionHandlerWithError:^(NSError * _Nullable error) {
+        
+    }];
+}
+
+-(void)addRegistersOrdered:(NSArray<DataResult *> *)array {
+    [collectedDatas addObjectsFromArray:array];
+    [collectedDatas sortUsingComparator:^NSComparisonResult(DataResult*  _Nonnull obj1, DataResult*  _Nonnull obj2) {
+        return [obj2.clientTime compare:obj1.clientTime];
     }];
 }
 

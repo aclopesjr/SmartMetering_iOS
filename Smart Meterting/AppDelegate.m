@@ -15,18 +15,31 @@
 
 @implementation AppDelegate
 
+@synthesize locationManager, currentLocation;
+static AppDelegate *instance = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    instance = self;
+    
     self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    self.locationManager.allowsBackgroundLocationUpdates = TRUE;
-    //self.locationManager.distanceFilter = 10.0;
+    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager setDelegate:self];
+    [self.locationManager setDistanceFilter:100.0];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBestForNavigation];
+    [self.locationManager setAllowsBackgroundLocationUpdates:TRUE];
+    [self.locationManager setPausesLocationUpdatesAutomatically:NO];
+    
+    self.currentLocation = locationManager.location;
+    
     [self.locationManager startUpdatingLocation];
     
     return YES;
 }
 
++(AppDelegate *) sharedInstance {
+    return instance;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -54,16 +67,27 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
 #pragma mark Background Refresh
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    [self.locationManager stopUpdatingLocation];
+//-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+- (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    //
+    self.currentLocation = [locations lastObject];
+    //
+    NSLog(@"Location started");
+    NSDate *fetchStart = [NSDate date];
     
-    CLLocation *location = [locations lastObject];
-    
-    NSLog(@"latitude = %f", location.coordinate.latitude);
-    NSLog(@"longitude = %f", location.coordinate.longitude);
+    [RaiseUIOT collectDataForAllServices:^{
+        NSDate *fetchEnd = [NSDate date];
+        NSTimeInterval timeElapsed = [fetchEnd timeIntervalSinceDate:fetchStart];
+        NSLog(@"Background Location Duration: %f seconds", timeElapsed);
+        NSLog(@"Location Finished");
+    } andCompletionHandlerWithError:^(NSError * _Nullable error) {
+        //Datas are not collected
+        NSDate *fetchEnd = [NSDate date];
+        NSTimeInterval timeElapsed = [fetchEnd timeIntervalSinceDate:fetchStart];
+        NSLog(@"Background Location Duration: %f seconds", timeElapsed);
+        NSLog(@"Location Finished");
+    }];
 }
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {

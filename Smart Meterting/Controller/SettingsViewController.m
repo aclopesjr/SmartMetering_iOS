@@ -37,32 +37,81 @@
 */
 #pragma mark Status
 -(void)registerStatusDidUpdate {
-    if ([RaiseUIOT isAutoRegistered]) {
+    [[self autoRegisterStatus] setText:@"Verifying Auto Register!"];
+    [[self autoRegisterStatus] setTextColor:[UIColor blackColor]];
+    //Starts indicating activity for status
+    [[self activityForStatus] startAnimating];
+    
+    [[self forceAutoRegister] setEnabled:FALSE];
+    [[self forceAutoRegister] setAlpha:0.5];
+    [[self revalidateAutoRegister] setEnabled:FALSE];
+    [[self revalidateAutoRegister] setAlpha:0.5];
+    [[self forceDataCollection] setEnabled:FALSE];
+    [[self forceDataCollection] setAlpha:0.5];
+    
+    [RaiseUIOT willNeedToValidateAutoRegister:^{
+        //It is registered, but needs to validate
+        if ([RaiseUIOT isAutoRegistered]) {
+            [[self autoRegisterStatus] setText:@"Device needs to validate auto register!"];
+            //Enable Auto Register Button to Auto Register process
+            [[self revalidateAutoRegister] setEnabled:TRUE];
+            [[self revalidateAutoRegister] setAlpha:1.0];
+        //It is not registered.
+        } else {
+            [[self autoRegisterStatus] setText:@"Device is not currently auto registered!"];
+            //Enable Auto Register Button to Auto Register process
+            [[self forceAutoRegister] setEnabled:TRUE];
+            [[self forceAutoRegister] setAlpha:1.0];
+        }
+        [[self autoRegisterStatus] setTextColor:[UIColor redColor]];
+        //Stops indicate activity for status
+        [[self activityForStatus] stopAnimating];
+    } andNoNeedsHandler:^{
+        //It is registerd.
         [[self autoRegisterStatus] setText:@"Device is currently auto registered!"];
         [[self autoRegisterStatus] setTextColor:[UIColor greenColor]];
-    } else {
-        [[self autoRegisterStatus] setText:@"Device is not currently auto registered!"];
-        [[self autoRegisterStatus] setTextColor:[UIColor redColor]];
-    }
+        //Enable Data Collection Button to Collect Data process
+        [[self forceDataCollection] setEnabled:TRUE];
+        [[self forceDataCollection] setAlpha:1.0];
+        //Stops indicate activity for status
+        [[self activityForStatus] stopAnimating];
+    } andErroHandler:^(NSError * _Nullable error) {
+        //Throws error alert
+        UIAlertController * alert = [[UIAlertController
+                                      alertControllerWithTitle:@"Error Auto Registering!"
+                                      message:[error localizedDescription]
+                                      preferredStyle:UIAlertControllerStyleAlert] init];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self registerStatusDidUpdate];
+        }]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        //Stops indicate activity for status
+        [[self activityForStatus] stopAnimating];
+    }];
 }
 
 #pragma mark Buttons
 - (IBAction)onForceAutoRegisterClick:(UIButton *)sender {
-    
+    //Starts activity indicator for Auto Register
+    [[self activityForAutoRegisterButton] startAnimating];
+    //Starts the process of auto registering
     [RaiseUIOT autoRegister:^(AutoRegisterResult * _Nullable autoRegisterResult) {
-        
         //Registers all services
         [RaiseUIOT registerAllServices:^(ServiceRegisterResult * _Nullable serviceRegisterResult) {
-           
+            //
             NSMutableString *message = [[NSMutableString alloc] init];
-            [message appendString:@"The device has been successfuly auto registered with services: "];
+            [message appendString:@"The device has successfuly been auto registered with services: "];
             for (ServiceResult *service in serviceRegisterResult.services) {
                 [message appendString:service.name];
                 if ([[serviceRegisterResult services] lastObject] != service) {
                     [message appendString:@", "];
                 }
             }
-            
             //Throws successfuly alert
             UIAlertController * alert = [[UIAlertController
                                           alertControllerWithTitle:@"Auto Registered Successfuly"
@@ -76,8 +125,12 @@
             [self presentViewController:alert animated:YES completion:nil];
             
             [self registerStatusDidUpdate];
+            //Stops activity indicator for Auto Register
+            [[self activityForAutoRegisterButton] stopAnimating];
             
         } andCompletionHandlerWithError:^(NSError * _Nullable error) {
+            //Stops activity indicator for Auto Register
+            [[self activityForAutoRegisterButton] stopAnimating];
             //Throws error alert
             UIAlertController * alert = [[UIAlertController
                                           alertControllerWithTitle:@"Error Registering Services!"
@@ -102,22 +155,63 @@
                                                 handler:nil]];
         
         [self presentViewController:alert animated:YES completion:nil];
+        //Stops activity indicator for Auto Register
+        [[self activityForAutoRegisterButton] stopAnimating];
     }];
 }
 
-- (IBAction)onForceDataCollection:(UIButton *)sender {
-   
-    [RaiseUIOT collectDataForAllServices:^{
+- (IBAction)onRevalidateAutoRegisterClick:(UIButton *)sender {
+    //Starts activity indicator for Revalidating Auto Register
+    [[self activityForValidateButton] startAnimating];
+    //Starts the process of Revalita Autor Register
+    [RaiseUIOT revalidateAutoRegister:^(AutoRegisterResult * _Nullable autoRegisterResult) {
+        //Throws successfuly alert
+        UIAlertController * alert = [[UIAlertController
+                                      alertControllerWithTitle:@"Auto Register Revalidated Successfuly"
+                                      message:@"The auto register has successfuly been revalidated!"
+                                      preferredStyle:UIAlertControllerStyleAlert] init];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Close"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:nil]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        [self registerStatusDidUpdate];
+        //Stops activity indicator for Revalidating Auto Register
+        [[self activityForValidateButton] stopAnimating];
+    } andErroHandler:^(NSError * _Nullable error) {
         //Throws error alert
         UIAlertController * alert = [[UIAlertController
-                                      alertControllerWithTitle:@"Datas Collected Successfuly!"
-                                      message:@"Datas have all been collected successfuly!"
+                                      alertControllerWithTitle:@"Error Revalidating Auto Register!"
+                                      message:[error localizedDescription]
                                       preferredStyle:UIAlertControllerStyleAlert] init];
         
         [alert addAction:[UIAlertAction actionWithTitle:@"Close"
                                                   style:UIAlertActionStyleDefault
                                                 handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
+        //Stops activity indicator for Revalidating Auto Register
+        [[self activityForValidateButton] stopAnimating];
+    }];
+}
+
+- (IBAction)onForceDataCollection:(UIButton *)sender {
+    //Starts activity indicator for Collecting
+    [[self activityForDataCollectionButton] startAnimating];
+    //
+    [RaiseUIOT collectDataForAllServices:^{
+        //Throws error alert
+        UIAlertController * alert = [[UIAlertController
+                                      alertControllerWithTitle:@"Datas Collected Successfuly!"
+                                      message:@"Datas have all successfuly been collected!"
+                                      preferredStyle:UIAlertControllerStyleAlert] init];
+        
+        [alert addAction:[UIAlertAction actionWithTitle:@"Close"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:nil]];
+        [self presentViewController:alert animated:YES completion:nil];
+        //Stops activity indicator for Collecting Data
+        [[self activityForDataCollectionButton] stopAnimating];
     } andCompletionHandlerWithError:^(NSError * _Nullable error) {
         //Throws error alert
         UIAlertController * alert = [[UIAlertController
@@ -129,6 +223,8 @@
                                                   style:UIAlertActionStyleDefault
                                                 handler:nil]];
         [self presentViewController:alert animated:YES completion:nil];
+        //Stops activity indicator for Collecting Data
+        [[self activityForDataCollectionButton] stopAnimating];
     }];
 }
 

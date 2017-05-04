@@ -11,5 +11,12 @@
 @interface SettingsViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *autoRegisterStatus;
+@property (strong, nonatomic) IBOutlet UIButton *forceAutoRegister;
+@property (strong, nonatomic) IBOutlet UIButton *revalidateAutoRegister;
+@property (strong, nonatomic) IBOutlet UIButton *forceDataCollection;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityForStatus;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityForAutoRegisterButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityForValidateButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityForDataCollectionButton;
 
 @end
