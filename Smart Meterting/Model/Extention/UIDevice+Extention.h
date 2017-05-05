@@ -21,4 +21,8 @@
 +(NSString *) carrierName;
 +(NSNumber *) signalStrength;
 
++(NSString *) model;
++(NSString *) branch;
++(NSString *) operationSystem;
+
 @end

@@ -87,4 +87,16 @@
     return [NSNumber numberWithInt:signalStrength];
 }
 
++(NSString *) model {
+    return [[UIDevice currentDevice] model];
+}
+
++(NSString *) branch {
+    return @"Apple";
+}
+
++(NSString *) operationSystem {
+    return [NSString stringWithFormat:@"%@ %@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]];
+}
+
 @end

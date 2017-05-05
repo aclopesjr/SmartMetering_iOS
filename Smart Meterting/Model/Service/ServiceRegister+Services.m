@@ -18,6 +18,9 @@
                                            [ServiceRegister serviceWithLocation],
                                            [ServiceRegister serviceWithNetworkSignal],
                                            [ServiceRegister serviceWithBatteryLevel],
+                                           [ServiceRegister serviceWithModel],
+                                           [ServiceRegister serviceWithBranch],
+                                           [ServiceRegister serviceWithOS],
                                            nil];
     [serviceRegister setServices:services];
     
@@ -67,6 +70,48 @@
     [batteryService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
     
     return batteryService;
+}
+
++(Service *)serviceWithModel {
+    //Creates the model service
+    Service *modelService = [Service alloc];
+    [modelService setServiceName:SERVICE_NAME_FOR_MODEL];
+    //Defines the input parameters
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:@"string" forKey:@"model"];
+    [modelService setServiceParameters:parameters];
+    //Defines the output parameters
+    [modelService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
+    
+    return modelService;
+}
+
++(Service *)serviceWithBranch {
+    //Creates the branch service
+    Service *branchService = [Service alloc];
+    [branchService setServiceName:SERVICE_NAME_FOR_BRANCH];
+    //Defines the input parameters
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:@"string" forKey:@"branch"];
+    [branchService setServiceParameters:parameters];
+    //Defines the output parameters
+    [branchService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
+    
+    return branchService;
+}
+
++(Service *)serviceWithOS {
+    //Creates the Operation System service
+    Service *osService = [Service alloc];
+    [osService setServiceName:SERVICE_NAME_FOR_OS];
+    //Defines the input parameters
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:@"string" forKey:@"os"];
+    [osService setServiceParameters:parameters];
+    //Defines the output parameters
+    [osService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
+    
+    return osService;
 }
 
 @end

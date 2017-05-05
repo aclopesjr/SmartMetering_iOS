@@ -18,8 +18,8 @@
 +(Data *)dataForBatteryLevel;
 +(Data *)dataForDownloadAndUpload;
 +(Data *)dataForLossPackage;
-+(Data *)dataForDeviceModel;
-+(Data *)dataForDeviceBranch;
++(Data *)dataForModel;
++(Data *)dataForBranch;
 +(Data *)dataForOS;
 
 

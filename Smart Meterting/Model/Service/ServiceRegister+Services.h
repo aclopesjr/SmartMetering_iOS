@@ -11,6 +11,9 @@
 #define SERVICE_NAME_FOR_BATTERY            @"GetBatteryLevel"
 #define SERVICE_NAME_FOR_NETWORK_TRAFFIC    @"GetNetworkTraffic"
 #define SERVICE_NAME_FOR_LOSS_PACKAGE       @"GetLossPackage"
+#define SERVICE_NAME_FOR_MODEL              @"GetModel"
+#define SERVICE_NAME_FOR_BRANCH             @"GetBranch"
+#define SERVICE_NAME_FOR_OS                 @"GetOperationSystem"
 
 #import <Foundation/Foundation.h>
 #import "ServiceRegister.h"
@@ -21,5 +24,8 @@
 +(Service *)serviceWithLocation;
 +(Service *)serviceWithNetworkSignal;
 +(Service *)serviceWithBatteryLevel;
++(Service *)serviceWithModel;
++(Service *)serviceWithBranch;
++(Service *)serviceWithOS;
 
 @end

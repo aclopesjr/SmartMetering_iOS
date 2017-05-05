@@ -20,9 +20,12 @@
     DataRegister *dataRegister = [[DataRegister alloc] init];
     
     NSMutableArray<Data *> *datas = [NSMutableArray<Data *> arrayWithObjects:
-                                           [DataRegister dataForLocation],
-                                           [DataRegister dataForSignalLevel],
-                                           [DataRegister dataForBatteryLevel],
+                                            [DataRegister dataForLocation],
+                                            [DataRegister dataForSignalLevel],
+                                            [DataRegister dataForBatteryLevel],
+                                            [DataRegister dataForModel],
+                                            [DataRegister dataForBranch],
+                                            [DataRegister dataForOS],
                                            nil];
     [dataRegister setDatas:datas];
     
@@ -31,7 +34,11 @@
 
 //Collect data for location
 +(Data *)dataForLocation {
+    //Gets the service id
     NSNumber *serviceId = [DataRegister getServiceId:SERVICE_NAME_FOR_LOCATION];
+    if (serviceId == nil) {
+        return nil;
+    }
     
     Data *data = [[Data alloc] init];
     //Sets the service id
@@ -47,7 +54,11 @@
 
 //Collect data for network signal level
 +(Data *)dataForSignalLevel {
+    //Gets the service id
     NSNumber *serviceId = [DataRegister getServiceId:SERVICE_NAME_FOR_NETWORK_SIGNAL];
+    if (serviceId == nil) {
+        return nil;
+    }
     
     Data *data = [[Data alloc] init];
     //Sets the service id
@@ -65,6 +76,9 @@
 +(Data *)dataForBatteryLevel {
     //Gets the service id for battery
     NSNumber *serviceId = [DataRegister getServiceId:SERVICE_NAME_FOR_BATTERY];
+    if (serviceId == nil) {
+        return nil;
+    }
     
     //Creates the data to register
     Data *data = [[Data alloc] init];
@@ -90,19 +104,63 @@
 }
 
 //Collect data for device model
-+(Data *)dataForDeviceModel {
-    //[self setChipset:[[UIDevice currentDevice] model]];
-    return nil;
++(Data *)dataForModel {
+    //Gets the service id for model
+    NSNumber *serviceId = [DataRegister getServiceId:SERVICE_NAME_FOR_MODEL];
+    if (serviceId == nil) {
+        return nil;
+    }
+    
+    //Creates the data to register
+    Data *data = [[Data alloc] init];
+    //Sets the service id
+    [data setServiceId:serviceId];
+    //Sets the input values
+    NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
+    [inputValues setObject:[UIDevice model] forKey:@"model"];
+    [data setDataValues:inputValues];
+    
+    return data;
 }
 
 //Collect data for device branch
-+(Data *)dataForDeviceBranch {
-    return nil;
++(Data *)dataForBranch {
+    //Gets the service id for branch
+    NSNumber *serviceId = [DataRegister getServiceId:SERVICE_NAME_FOR_BRANCH];
+    if (serviceId == nil) {
+        return nil;
+    }
+    
+    //Creates the data to register
+    Data *data = [[Data alloc] init];
+    //Sets the service id
+    [data setServiceId:serviceId];
+    //Sets the input values
+    NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
+    [inputValues setObject:[UIDevice branch] forKey:@"branch"];
+    [data setDataValues:inputValues];
+    
+    return data;
 }
 
 //Collect data for operation system
 +(Data *)dataForOS {
-    return nil;
+    //Gets the service id for operation system
+    NSNumber *serviceId = [DataRegister getServiceId:SERVICE_NAME_FOR_OS];
+    if (serviceId == nil) {
+        return nil;
+    }
+    
+    //Creates the data to register
+    Data *data = [[Data alloc] init];
+    //Sets the service id
+    [data setServiceId:serviceId];
+    //Sets the input values
+    NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
+    [inputValues setObject:[UIDevice operationSystem] forKey:@"os"];
+    [data setDataValues:inputValues];
+    
+    return data;
 }
 
 +(NSNumber *)getServiceId:(NSString *)serviceName {

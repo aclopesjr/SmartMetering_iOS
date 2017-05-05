@@ -62,8 +62,13 @@
     } else {
         //Auto register process
         [RaiseUIOT autoRegister:^(AutoRegisterResult * _Nonnull autoRegisterResult) {
-            //Loads all data registered
-            [self requestAllData];
+            //Registers all services
+            [RaiseUIOT registerAllServices:^(ServiceRegisterResult * _Nullable serviceRegisterResult) {
+                //Loads all data registered
+                [self requestAllData];
+            } andCompletionHandlerWithError:^(NSError * _Nullable error) {
+                
+            }];
         } andErroHandler:^(NSError * _Nonnull error) {
             
         }];
@@ -71,35 +76,91 @@
 }
 
 -(void)requestAllData {
-    [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_LOCATION andSuccessHandler:^(DataRegisterResult * _Nullable dataRegisterResult) {
-        //
-        [self addRegistersOrdered:dataRegisterResult.datas];
-        
-        [tableViewOfDatas reloadData];
-        [refreshControl endRefreshing];
-    } andCompletionHandlerWithError:^(NSError * _Nullable error) {
-        
-    }];
     
-    [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_NETWORK_SIGNAL andSuccessHandler:^(DataRegisterResult * _Nullable dataRegisterResult) {
-        //
-        [self addRegistersOrdered:dataRegisterResult.datas];
+    void(^errorHandler)(NSError * _Nullable error);
+    errorHandler = ^(NSError * _Nullable error) {
+        //Throws error alert
+        UIAlertController * alert = [[UIAlertController
+                                      alertControllerWithTitle:@"Error Requesting Data!"
+                                      message:[error localizedDescription]
+                                      preferredStyle:UIAlertControllerStyleAlert] init];
         
-        [tableViewOfDatas reloadData];
-        [refreshControl endRefreshing];
-    } andCompletionHandlerWithError:^(NSError * _Nullable error) {
+        [alert addAction:[UIAlertAction actionWithTitle:@"Cancel"
+                                                  style:UIAlertActionStyleDefault
+                                                handler:nil]];
+        [alert addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self requestAllData];
+        }]];
         
-    }];
+        [self presentViewController:alert animated:YES completion:nil];
+    };
     
-    [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_BATTERY andSuccessHandler:^(DataRegisterResult * _Nullable dataRegisterResult) {
+    void(^osSuccessHandler)(DataRegisterResult * _Nullable dataRegisterResult);
+    osSuccessHandler = ^(DataRegisterResult * _Nullable dataRegisterResult) {
         //
         [self addRegistersOrdered:dataRegisterResult.datas];
-        
+        //
         [tableViewOfDatas reloadData];
         [refreshControl endRefreshing];
-    } andCompletionHandlerWithError:^(NSError * _Nullable error) {
-        
-    }];
+    };
+    
+    void(^branchSuccessHandler)(DataRegisterResult * _Nullable dataRegisterResult);
+    branchSuccessHandler = ^(DataRegisterResult * _Nullable dataRegisterResult) {
+        //
+        [self addRegistersOrdered:dataRegisterResult.datas];
+        //
+        [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_OS
+                             andSuccessHandler:osSuccessHandler
+                 andCompletionHandlerWithError:errorHandler];
+    };
+    
+    void(^modelSuccessHandler)(DataRegisterResult * _Nullable dataRegisterResult);
+    modelSuccessHandler = ^(DataRegisterResult * _Nullable dataRegisterResult) {
+        //
+        [self addRegistersOrdered:dataRegisterResult.datas];
+        //
+        [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_BRANCH
+                             andSuccessHandler:branchSuccessHandler
+                 andCompletionHandlerWithError:errorHandler];
+    };
+    
+    void(^batterySuccessHandler)(DataRegisterResult * _Nullable dataRegisterResult);
+    batterySuccessHandler = ^(DataRegisterResult * _Nullable dataRegisterResult) {
+        //
+        [self addRegistersOrdered:dataRegisterResult.datas];
+        //
+        [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_MODEL
+                             andSuccessHandler:modelSuccessHandler
+                 andCompletionHandlerWithError:errorHandler];
+    };
+    
+    void(^networkSignalSuccessHandler)(DataRegisterResult * _Nullable dataRegisterResult);
+    networkSignalSuccessHandler = ^(DataRegisterResult * _Nullable dataRegisterResult) {
+        //
+        [self addRegistersOrdered:dataRegisterResult.datas];
+        //
+        [tableViewOfDatas reloadData];
+        //
+        [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_BATTERY
+                             andSuccessHandler:batterySuccessHandler
+                 andCompletionHandlerWithError:errorHandler];
+    };
+    
+    void(^locationSuccessHandler)(DataRegisterResult * _Nullable dataRegisterResult);
+    locationSuccessHandler = ^(DataRegisterResult * _Nullable dataRegisterResult) {
+        //
+        [self addRegistersOrdered:dataRegisterResult.datas];
+        //
+        [tableViewOfDatas reloadData];
+        //
+        [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_NETWORK_SIGNAL
+                             andSuccessHandler:networkSignalSuccessHandler
+                 andCompletionHandlerWithError:errorHandler];
+    };
+    
+    [RaiseUIOT listCollectedDataForService:SERVICE_NAME_FOR_LOCATION
+                         andSuccessHandler:locationSuccessHandler
+             andCompletionHandlerWithError:errorHandler];
 }
 
 -(void)addRegistersOrdered:(NSArray<DataResult *> *)array {
