@@ -24,5 +24,6 @@
 +(NSString *) model;
 +(NSString *) branch;
 +(NSString *) operationSystem;
++(NSString *) uniqueIdentifier;
 
 @end

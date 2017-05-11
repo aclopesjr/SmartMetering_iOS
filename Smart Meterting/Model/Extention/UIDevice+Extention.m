@@ -99,4 +99,8 @@
     return [NSString stringWithFormat:@"%@ %@", [[UIDevice currentDevice] systemName], [[UIDevice currentDevice] systemVersion]];
 }
 
++(NSString *) uniqueIdentifier {
+    return [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+}
+
 @end

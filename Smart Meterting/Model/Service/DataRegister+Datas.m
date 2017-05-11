@@ -27,6 +27,7 @@
                                             [DataRegister dataForBranch],
                                             [DataRegister dataForOS],
                                            nil];
+    
     [dataRegister setDatas:datas];
     
     return dataRegister;
@@ -47,7 +48,9 @@
     NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
     [inputValues setObject:[UIDevice latitude] forKey:@"latitude"];
     [inputValues setObject:[UIDevice longitude] forKey:@"longitude"];
+    [inputValues setObject:[UIDevice uniqueIdentifier] forKey:@"deviceId"];
     [data setDataValues:inputValues];
+    
     
     return data;
 }
@@ -67,6 +70,7 @@
     NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
     [inputValues setObject:[UIDevice carrierName] forKey:@"carrier"];
     [inputValues setObject:[UIDevice signalStrength] forKey:@"signal"];
+    [inputValues setObject:[UIDevice uniqueIdentifier] forKey:@"deviceId"];
     [data setDataValues:inputValues];
     
     return data;
@@ -88,6 +92,7 @@
     NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
     [inputValues setObject:[UIDevice batteryState] forKey:@"state"];
     [inputValues setObject:[UIDevice batteryPercentage] forKey:@"percentage"];
+    [inputValues setObject:[UIDevice uniqueIdentifier] forKey:@"deviceId"];
     [data setDataValues:inputValues];
     
     return data;
@@ -118,6 +123,7 @@
     //Sets the input values
     NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
     [inputValues setObject:[UIDevice model] forKey:@"model"];
+    [inputValues setObject:[UIDevice uniqueIdentifier] forKey:@"deviceId"];
     [data setDataValues:inputValues];
     
     return data;
@@ -138,6 +144,7 @@
     //Sets the input values
     NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
     [inputValues setObject:[UIDevice branch] forKey:@"branch"];
+    [inputValues setObject:[UIDevice uniqueIdentifier] forKey:@"deviceId"];
     [data setDataValues:inputValues];
     
     return data;
@@ -158,6 +165,7 @@
     //Sets the input values
     NSMutableDictionary *inputValues = [[NSMutableDictionary alloc] init];
     [inputValues setObject:[UIDevice operationSystem] forKey:@"os"];
+    [inputValues setObject:[UIDevice uniqueIdentifier] forKey:@"deviceId"];
     [data setDataValues:inputValues];
     
     return data;

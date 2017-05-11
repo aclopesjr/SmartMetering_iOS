@@ -174,7 +174,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ju-ll-OBg">
                                 <rect key="frame" x="16" y="487" width="343" height="30"/>
-                                <color key="backgroundColor" red="0.67843137249999996" green="0.34509803919999998" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Force Auto Register">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -192,7 +192,7 @@
                                 <rect key="frame" x="329" y="592" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.92541211843490601" green="0.92554193735122681" blue="0.92537128925323486" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="k3q-af-Rgn" firstAttribute="leading" secondItem="9Ju-ll-OBg" secondAttribute="trailing" constant="-30" id="5Gz-LR-Cb1"/>
                             <constraint firstItem="khr-F9-Tcn" firstAttribute="centerY" secondItem="o3c-SY-gzI" secondAttribute="centerY" id="9qX-KG-4Pu"/>

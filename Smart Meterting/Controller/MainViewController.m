@@ -193,6 +193,9 @@
     //Sets collected datas
     NSMutableString *values = [[NSMutableString alloc] init];
     for (id key in data.dataValues) {
+        if ([key isEqualToString:@"deviceId"]) {
+            continue;
+        }
         [values appendFormat:@"%@ = %@, ", key, [data.dataValues valueForKey:key]];
     }
     [[cell lbDatas] setText:[values substringWithRange:NSMakeRange(0, values.length-2)]];

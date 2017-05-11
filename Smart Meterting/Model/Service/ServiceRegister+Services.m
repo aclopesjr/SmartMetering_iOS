@@ -35,9 +35,10 @@
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:@"float" forKey:@"latitude"];
     [parameters setValue:@"float" forKey:@"longitude"];
+    [parameters setValue:@"string" forKey:@"deviceId"];
     [locationService setServiceParameters:parameters];
     //Defines the output parameters
-    [locationService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"float", @"float", nil]];
+    [locationService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"float", @"float", @"string", nil]];
     
     return locationService;
 }
@@ -50,9 +51,10 @@
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:@"string" forKey:@"carrier"];
     [parameters setValue:@"float" forKey:@"signal"];
+    [parameters setValue:@"string" forKey:@"deviceId"];
     [networkSignalService setServiceParameters:parameters];
     //Defines the output parameters
-    [networkSignalService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
+    [networkSignalService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", @"float", @"string", nil]];
     
     return networkSignalService;
 }
@@ -65,9 +67,10 @@
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:@"string" forKey:@"state"];
     [parameters setValue:@"float" forKey:@"percentage"];
+    [parameters setValue:@"string" forKey:@"deviceId"];
     [batteryService setServiceParameters:parameters];
     //Defines the output parameters
-    [batteryService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
+    [batteryService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", @"float", @"string", nil]];
     
     return batteryService;
 }
@@ -79,9 +82,10 @@
     //Defines the input parameters
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:@"string" forKey:@"model"];
+    [parameters setValue:@"string" forKey:@"deviceId"];
     [modelService setServiceParameters:parameters];
     //Defines the output parameters
-    [modelService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
+    [modelService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", @"string", nil]];
     
     return modelService;
 }
@@ -93,9 +97,10 @@
     //Defines the input parameters
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:@"string" forKey:@"branch"];
+    [parameters setValue:@"string" forKey:@"deviceId"];
     [branchService setServiceParameters:parameters];
     //Defines the output parameters
-    [branchService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
+    [branchService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", @"string", nil]];
     
     return branchService;
 }
@@ -107,9 +112,10 @@
     //Defines the input parameters
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:@"string" forKey:@"os"];
+    [parameters setValue:@"string" forKey:@"deviceId"];
     [osService setServiceParameters:parameters];
     //Defines the output parameters
-    [osService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", nil]];
+    [osService setServiceReturnType:[NSArray<NSString *> arrayWithObjects:@"string", @"string", nil]];
     
     return osService;
 }

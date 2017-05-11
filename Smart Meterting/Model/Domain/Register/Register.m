@@ -30,7 +30,7 @@
         NSNumber *timeStamp = [NSNumber numberWithInteger:timeInterval];
         [self setClientTime:[NSString stringWithFormat:@"%@", timeStamp]];
         
-        [self setTags:[NSArray<NSString *> arrayWithObjects:@"iOS", @"Smart Metering", nil]];
+        [self setTags:[NSArray<NSString *> arrayWithObjects:@"iOS", @"Smart Metering Homol", nil]];
     }
     return self;
 }
